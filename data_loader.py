@@ -14,9 +14,11 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 IMG_SIZE = 64
 BATCH_SIZE = 128
 
+data_path = "C:\\Users\\Seunghwi\\Documents\\Diffusion\\archive\\Humans"
+
 class FaceDataset(Dataset):
     def __init__(self,root_dir,transform=None):
-        self.annotaions = os.listdir("C:\\Users\\Seunghwi\\Documents\\Diffusion\\archive\\Humans")
+        self.annotaions = os.listdir(data_path)
         self.root_dir = root_dir
         self.transform = transform
 
@@ -40,7 +42,7 @@ def load_transformed_dataset():
     ]
     data_transform = transforms.Compose(data_transforms)
 
-    dataset = FaceDataset(root_dir="C:\\Users\\Seunghwi\\Documents\\Diffusion\\archive\\Humans", transform=data_transform)
+    dataset = FaceDataset(root_dir=data_path, transform=data_transform)
 
     train, test = torch.utils.data.random_split(dataset,[7000,220])
 

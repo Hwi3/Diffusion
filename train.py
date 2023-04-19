@@ -38,3 +38,4 @@ for epoch in range(epochs):
       if step % 1 == 0:
         print(f"Epoch {epoch} | step {step:03d} Loss: {loss.item()} ")
 
+torch.save(model.state_dict(), 'model_weights.pth')
