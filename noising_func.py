@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import numpy as np
+import model as Model
 import cv2
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
@@ -43,18 +44,3 @@ sqrt_recip_alphas = torch.sqrt(1.0 / alphas)
 sqrt_alphas_cumprod = torch.sqrt(alphas_cumprod)
 sqrt_one_minus_alphas_cumprod = torch.sqrt(1. - alphas_cumprod)
 variance = betas * (1. - alphas_cumprod_prev) / (1. - alphas_cumprod)
-
-
-
-# num_images = 10
-# stepsize = int(T/num_images)
-
-
-# image = torch.tensor(cv2.imread("C:\\Users\\Seunghwi\\Documents\\Diffusion\\archive\\Humans\\abc.jpg"),dtype=torch.float32)
-
-# for idx in range(0, T, stepsize):
-#     t = torch.Tensor([idx]).type(torch.int64)
-#     image, noise = forward_diffusion_sample(image, t)
-#     cv2.imwrite(f"{idx}.jpg",np.array(image))
-
-# print()

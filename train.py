@@ -35,5 +35,6 @@ for epoch in range(epochs):
       loss.backward()
       optimizer.step()
 
-      if epoch % 1 == 0 and step == 0:
+      if step % 1 == 0:
         print(f"Epoch {epoch} | step {step:03d} Loss: {loss.item()} ")
+
