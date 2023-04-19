@@ -25,11 +25,10 @@ class FaceDataset(Dataset):
 
     def __getitem__(self,index):
         img_path = os.path.join(self.root_dir, self.annotaions[0])
-        image = Image.open(img_path)
-        if self.transform:
-            image = self.transform(image)
-
-        return image
+        pil_image = Image.open(img_path).convert("RGB")
+        if self.transform is not None:
+            pil_image = self.transform(pil_image)
+        return pil_image
 
 
 def load_transformed_dataset():
